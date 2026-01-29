@@ -1,0 +1,14 @@
+[build]
+  # On dit à Netlify d'entrer dans le dossier frontend
+  base = "frontend"
+  
+  # La commande pour construire le site
+  command = "npm run build"
+  
+  # Le dossier où Next.js range le site fini. 
+  # Note: Avec le plugin Next.js, c'est souvent .next
+  publish = ".next"
+
+# Ceci installe automatiquement le plugin indispensable pour Next.js sur Netlify
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
