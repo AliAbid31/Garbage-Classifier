@@ -6,9 +6,8 @@ export default function Home() {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [language, setLanguage] = useState("fr"); // Langue par défaut
+  const [language, setLanguage] = useState("fr"); 
 
-  // 1. Dictionnaire de traduction pour tous les textes de l'interface
   const content = {
     en: {
       title: "♻️ AI Eco-Sort",
@@ -66,7 +65,8 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/predict", {
+      const API_URL = process.env.API_URL || "http://127.0.0.1:8000";
+      const response = await fetch(`${API_URL}/predict`, {
         method: "POST",
         body: formData,
       });
